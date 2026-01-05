@@ -1,0 +1,8 @@
+{
+  "name": "Aegis Core: Biometric Analytical Engine",
+  "description": "A high-security biometric analysis and command system featuring multi-modal signal fusion, voice-controlled enclave operations, and secure application control.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

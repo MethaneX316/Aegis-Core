@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Permissions-Policy" content="publickey-credentials-create=(self)">
+  <title>Aegis Core | Tactical Biometric Command</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #22d3ee;
+      --bg: #010409;
+      --card: rgba(13, 17, 23, 0.9);
+      --border: rgba(34, 211, 238, 0.15);
+      --text: #f8fafc;
+      --base-font: 14px;
+      --ui-scale: 1;
+      --ui-contrast: 100%;
+      --density-gap: 1.5rem;
+    }
+
+    body.aegis-dark { --primary: #22d3ee; --bg: #010409; --border: rgba(34, 211, 238, 0.15); --text: #f8fafc; }
+    body.high-contrast { --primary: #00ff00; --bg: #000000; --border: #ffffff; --text: #ffffff; }
+    body.stealth-onyx { --primary: #525252; --bg: #050505; --border: #1a1a1a; --text: #a3a3a3; }
+    body.thermal { --primary: #ff4444; --bg: #0f0000; --border: #440000; --text: #ff8888; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      margin: 0;
+      height: 100vh;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      font-size: var(--base-font);
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .tactical-grid {
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .scanline-container::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+      z-index: 1000;
+      background-size: 100% 2px, 2px 100%;
+      pointer-events: none;
+    }
+    
+    .glow-cyan { filter: drop-shadow(0 0 12px var(--primary)); }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; border: 1px solid var(--bg); }
+
+    .tactical-btn {
+      transform: scale(var(--ui-scale));
+      transform-origin: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tactical-btn:active {
+      transform: scale(calc(var(--ui-scale) * 0.92));
+    }
+
+    #root {
+      filter: contrast(var(--ui-contrast));
+      height: 100%;
+      width: 100%;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    .high-stress {
+      animation: glitch 0.2s infinite;
+      border: 2px solid #ff0000 !important;
+    }
+
+    button, input, select, textarea {
+      font-size: inherit;
+    }
+
+    .responsive-screen-asset {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react/": "https://esm.sh/react@^19.2.3/",
+      "react": "https://esm.sh/react@^19.2.3",
+      "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+      "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+    }
+  }
+  </script>
+</head>
+<body class="scanline-container aegis-dark">
+  <div id="root"></div>
+</body>
+</html>
