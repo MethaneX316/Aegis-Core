@@ -1,0 +1,6 @@
+{
+  "appId": "com.aegis.core",
+  "appName": "AegisCore",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

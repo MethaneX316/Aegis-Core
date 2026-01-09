@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AegisCore</string>
+    <string name="title_activity_main">AegisCore</string>
+    <string name="package_name">com.aegis.core</string>
+    <string name="custom_url_scheme">com.aegis.core</string>
+</resources>
